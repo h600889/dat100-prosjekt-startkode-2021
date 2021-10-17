@@ -205,7 +205,7 @@ public class KortSamling {
 		// hvis det er ingen kort, returner en tom kortstokk
 		if (antall == 0) { return new Kort[0]; }
 
-		//lager en samling som er like stor som antallet kort, også fyller opp samlingen.
+		//lager en samling som er like stor som antallet kort, og fyller opp samlingen.
 		Kort[] alleKort = new Kort[antall];
 		for (int i = 0; i < antall; i++) {
 			alleKort[i] = samling[i];

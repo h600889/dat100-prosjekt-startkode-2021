@@ -58,11 +58,12 @@ public interface ISpiller {
 
 	/**
 	 * Trekker et kort fra bunken.
-	 * 
-	 * @param kort
-	 *            som trekkes.
-	 */
-	public void trekker(Kort kort);
+	 *
+     * @param kort
+     *            som trekkes.
+     * @return
+     */
+	public Kort trekker(Kort kort);
 
 	/**
 	 * Antall ganger spiller har trukket fra bunken mens han har vært i tur.

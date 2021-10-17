@@ -1,5 +1,6 @@
 package no.hvl.dat100.prosjekt.modell;
 
+import java.util.Arrays;
 import java.util.Random;
 
 import no.hvl.dat100.prosjekt.TODO;
@@ -16,11 +17,24 @@ public class KortUtils {
 	 */
 	
 	public static void sorter(KortSamling samling) {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		KortSamling alleKort = new KortSamling();
+		for (int i = 0; i < samling.getAllekort().length; i++) {
+			alleKort.leggTil(samling.getAllekort()[i]);
+		}
+		int length = alleKort.getAllekort().length;
+		int pos = 0;
+		samling.fjernAlle();
+		while (pos < length) {
+			Kort m = new Kort(Kortfarge.Spar, 13);
+			for (int i = 0; i < alleKort.getAllekort().length; i++) {
+				if (alleKort.getAllekort()[i].compareTo(m) < 0) {
+					m = alleKort.getAllekort()[i];
+				}
+			}
+			samling.leggTil(m);
+			alleKort.fjern(m);
+			pos++;
+		}
 	}
 	
 	/**
@@ -30,11 +44,20 @@ public class KortUtils {
 	 * 			samling av kort som skal stokkes. 
 	 */
 	public static void stokk(KortSamling samling) {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		Random random = new Random();
+
+		KortSamling alleKort = new KortSamling();
+		for (int i = 0; i < samling.getAllekort().length; i++) {
+			alleKort.leggTil(samling.getAllekort()[i]);
+		}
+		int length = alleKort.getAllekort().length;
+		samling.fjernAlle();
+		for (int k = 0; k < length; k++) {
+			Kort stokkKort = alleKort.getAllekort()[random.nextInt(alleKort.getAllekort().length)];
+			alleKort.fjern(stokkKort);
+			samling.leggTil(stokkKort);
+		}
+
 	}
 	
 }
