@@ -129,11 +129,16 @@ public class Bord {
 	 * til-bunken. Det vil nå være det eneste kortet i til-bunken.
 	 */
 	public void snuTilBunken() {
+
+		//ta det siste kortet fra tilbunken, slik at det kan legges tilbake i til-bunken etter at den har blitt snudd.
 		Kort siste = bunkeTil.taSiste();
+
+		//flytt alle kort fra tilbunken og til frabunken.
 		for (Kort k : bunkeTil.getAllekort()) {
 			bunkeFra.leggTil(k);
 			bunkeTil.fjern(k);
 		}
+		//legg til siste kortet fra tidligere til tilbunken, og stokk frabunken.
 		bunkeTil.leggTil(siste);
 		KortUtils.stokk(bunkeFra);
 	}

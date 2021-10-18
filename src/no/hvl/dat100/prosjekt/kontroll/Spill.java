@@ -187,21 +187,6 @@ public class Spill {
 
 	}
 
-	public void leggTilPoeng(KortSamling samling, int poengSum, KortSamling gyldigeKort) {
-		for (Kort k : samling.getAllekort()) {
-			for (int i = 1; i <= 13; i++) {
-				if (k.getVerdi() == i) {
-					gyldigeKort.addPoengVerdi(i,poengSum);
-				}
-			}
-			for (Kortfarge f : Kortfarge.values()) {
-				if (k.getFarge().equals(f)) {
-					gyldigeKort.addPoengFarge(f,poengSum);
-				}
-			}
-		}
-	}
-
 
 
 }

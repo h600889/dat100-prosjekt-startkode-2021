@@ -50,26 +50,20 @@ public class SydSpiller extends Spiller {
 		}
 
 		if (gyldigeKortFinnes) {
-			final int POENG_LIK_VERDI = 4;
-			final int VERDI_I_FRABUNKE = 2;
+
 
 			//juks👿👿
-			removePoeng(spill.getNord().getHand(), VERDI_I_FRABUNKE, gyldigeKort);
+			removePoeng(spill.getNord().getHand(), 6, gyldigeKort);
 
 			//fjerner poeng fra kort som er i tilbunken, slik at de blir spilt mindre
-			removePoeng(spill.getBord().getBunkeTil(), VERDI_I_FRABUNKE, gyldigeKort);
+			removePoeng(spill.getBord().getBunkeTil(), 2, gyldigeKort);
 
 			//Sjekker hvilke verdier som det er mest av, og legger til poeng.
-			leggTilPoeng(gyldigeKort, POENG_LIK_VERDI, gyldigeKort);
+			leggTilPoeng(gyldigeKort, 4, gyldigeKort);
 
 			//legger til poeng til kort som har en verdi som andre kort i hånden også har.
-			for (Kort k : getHand().getAllekort()) {
-				for (int i = 1; i <= 13; i++) {
-					if (k.getVerdi() == i) {
-						gyldigeKort.addPoengVerdi(i,POENG_LIK_VERDI);
-					}
-				}
-			}
+			leggTilPoeng(getHand(), 2, gyldigeKort);
+
 			return new Handling(HandlingsType.LEGGNED, gyldigeKort.finnBesteKort());
 		}
 
