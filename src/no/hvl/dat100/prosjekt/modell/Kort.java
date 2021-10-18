@@ -11,6 +11,7 @@ public class Kort implements Comparable<Kort> {
 
 	private Kortfarge farge;
 	private int verdi;
+	private int poeng;
 
 	/**
 	 * Oppretter et kort med gitt farge og verdi.
@@ -23,6 +24,7 @@ public class Kort implements Comparable<Kort> {
 	public Kort(Kortfarge farge, int verdi) {
 		this.farge = farge;
 		this.verdi = verdi;
+		this.poeng = 0;
 	}
 
 	/**
@@ -189,4 +191,19 @@ public class Kort implements Comparable<Kort> {
 
 		return "" + farge + v;
 	}
+
+	//Poengsum metoder.
+	//poeng brukes til at Sydspiller skal kunne bestemme hvilke kort som er best.
+	public int getPoeng() {
+		return this.poeng;
+	}
+
+	public void setPoeng(int p) { this.poeng = p;}
+
+	public void addPoeng(int p) {
+		this.poeng += p;
+	}
+
+	public void removePoeng(int p) {this.poeng -= p;}
+
 }

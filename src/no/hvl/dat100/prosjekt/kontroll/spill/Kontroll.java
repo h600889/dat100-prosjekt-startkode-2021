@@ -189,7 +189,7 @@ public class Kontroll {
 		// Hint: bruk nesteHandling metoden for en spiller
 		
 		Kort kort = null;
-		Handling handling = spill.getSyd().nesteHandling(spill.getBord().seOversteBunkeTil());
+		Handling handling = spill.getSyd().nesteHandling(spill.getBord().seOversteBunkeTil(), spill);
 
 		switch (handling.getType()) {
 		

@@ -3,6 +3,7 @@ package no.hvl.dat100.prosjekt.kontroll;
 import no.hvl.dat100.prosjekt.modell.KortSamling;
 import no.hvl.dat100.prosjekt.kontroll.spill.Spillere;
 import no.hvl.dat100.prosjekt.modell.Kort;
+import no.hvl.dat100.prosjekt.modell.Kortfarge;
 
 /**
  * Abstrakt klasse som implementerer alle metodene i kontrakten (interfacet) ISpiller,
@@ -100,5 +101,35 @@ public abstract class Spiller implements ISpiller {
 		setAntallTrekk(antalltrekk+1);
 
 		return kort;
+	}
+
+	public void leggTilPoeng(KortSamling samling, int poengSum, KortSamling gyldigeKort) {
+		for (Kort k : samling.getAllekort()) {
+			for (int i = 1; i <= 13; i++) {
+				if (k.getVerdi() == i) {
+					gyldigeKort.addPoengVerdi(i,poengSum);
+				}
+			}
+			for (Kortfarge f : Kortfarge.values()) {
+				if (k.getFarge().equals(f)) {
+					gyldigeKort.addPoengFarge(f,poengSum);
+				}
+			}
+		}
+	}
+
+	public void removePoeng(KortSamling samling, int poengSum, KortSamling gyldigeKort) {
+		for (Kort k : samling.getAllekort()) {
+			for (int i = 1; i <= 13; i++) {
+				if (k.getVerdi() == i) {
+					gyldigeKort.removePoengVerdi(i,poengSum);
+				}
+			}
+			for (Kortfarge f : Kortfarge.values()) {
+				if (k.getFarge().equals(f)) {
+					gyldigeKort.removePoengFarge(f,poengSum);
+				}
+			}
+		}
 	}
 }

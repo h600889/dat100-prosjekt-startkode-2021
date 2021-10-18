@@ -21,7 +21,7 @@ public class NordSpiller extends Spiller {
 	}
 
 	@Override
-	public Handling nesteHandling(Kort topp) {
+	public Handling nesteHandling(Kort topp, Spill spilll) {
 		
 		// ArrayLister for de kort vi har og kan spille
 		Kort[] hand = getHand().getAllekort();

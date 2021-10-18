@@ -49,7 +49,6 @@ public class KortSamling {
 	 * @return antall kort i samlinga.
 	 */
 	public int getAntalKort() {
-		
 		return antall;
 	}
 	
@@ -207,11 +206,52 @@ public class KortSamling {
 
 		//lager en samling som er like stor som antallet kort, og fyller opp samlingen.
 		Kort[] alleKort = new Kort[antall];
-		for (int i = 0; i < antall; i++) {
-			alleKort[i] = samling[i];
-		}
+		System.arraycopy(samling, 0, alleKort, 0, antall);
 		return alleKort;
 	
 	}
-	
+
+	public void addPoengVerdi(int verdi, int p) {
+		for (Kort k : getAllekort()) {
+			if (k.getVerdi() == verdi) {
+				k.addPoeng(p);
+			}
+		}
+	}
+
+	public void addPoengFarge(Kortfarge verdi, int p) {
+		for (Kort k : getAllekort()) {
+			if (k.getFarge().equals(verdi)) {
+				k.addPoeng(p);
+			}
+		}
+	}
+
+	public void removePoengFarge(Kortfarge verdi, int p) {
+		for (Kort k : getAllekort()) {
+			if (k.getFarge().equals(verdi)) {
+				k.removePoeng(p);
+			}
+		}
+	}
+
+	public void removePoengVerdi(int verdi, int p) {
+		for (Kort k : getAllekort()) {
+			if (k.getVerdi() == verdi) {
+				k.removePoeng(p);
+			}
+		}
+	}
+
+	public Kort finnBesteKort() {
+		Kort m = new Kort(Kortfarge.Spar,1);
+		m.setPoeng(Integer.MIN_VALUE);
+		for (Kort k : getAllekort()) {
+			if (k.getPoeng() > m.getPoeng()) {
+				m = k;
+			}
+		}
+		return m;
+	}
+
 }

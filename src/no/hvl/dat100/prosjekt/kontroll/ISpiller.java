@@ -89,6 +89,6 @@ public interface ISpiller {
 	 *            kortet øverst i til-bunken.
 	 * @return neste handling.
 	 */
-	public Handling nesteHandling(Kort topp);
+	public Handling nesteHandling(Kort topp, Spill spill);
 
 }
