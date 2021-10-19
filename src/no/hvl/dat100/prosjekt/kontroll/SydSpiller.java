@@ -68,25 +68,34 @@ public class SydSpiller extends Spiller {
 			removePoeng(spill.getBord().getBunkeTil(), 2, gyldigeKort);
 
 			//Sjekker hvilke verdier som det er mest av, og legger til poeng.
-			leggTilPoeng(gyldigeKort, 4, gyldigeKort);
+			leggTilPoeng(gyldigeKort, 5, gyldigeKort);
 
 			//legger til poeng til kort som har en verdi som andre kort i hånden også har.
-			leggTilPoeng(getHand(), 2, gyldigeKort);
+			leggTilPoeng(getHand(), 3, gyldigeKort);
 
 			//Fjerner poeng fra åttere, slik at de bare spilles hvis ingen bedre kort finnes.
 			for (Kort k : gyldigeKort.getAllekort()) {
 				if (k.getVerdi() == 8) {
-					k.setPoeng(-6);
+					k.setPoeng(-10);
 					for (Kort ko : getHand().getAllekort()) {
 						if (ko.sammeFarge(k)) {
-							k.setPoeng(5);
+							k.setPoeng(0);
 						}
 					}
 				}
 			}
 
-			//juks👿👿
+			//juks (ser på motstanderen sin hånd + toppkortet i frabunken.
 			removePoeng(spill.getNord().getHand(), 5, gyldigeKort);
+			if (!spill.getBord().bunkefraTom()) {
+				if (spill.getBord().getBunkeFra().seSiste().sammeFarge(topp) || spill.getBord().getBunkeFra().seSiste().sammeVerdi(topp)) {
+					for (Kort k : gyldigeKort.getAllekort()) {
+						if (k.sammeVerdi(spill.getBord().getBunkeFra().seSiste()) || k.sammeFarge(spill.getBord().getBunkeFra().seSiste())) {
+							k.removePoeng(5);
+						}
+					}
+				}
+			}
 
 			//Ikke legg ned kort med veldig lav poengverdi
 			if (gyldigeKort.finnBesteKort().getPoeng() >= -5 && getHand().getAntalKort() >= spill.getNord().getHand().getAntalKort()) {
