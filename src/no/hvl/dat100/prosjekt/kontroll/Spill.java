@@ -84,6 +84,8 @@ public class Spill {
 			delutKort();
 		}
 
+		KortUtils.sorter(syd.getHand());
+
 		bord.vendOversteFraBunke();
 
 	}
@@ -112,7 +114,10 @@ public class Spill {
 		if (bord.bunkefraTom()) {
 			bord.snuTilBunken();
 		}
-		return spiller.trekker(bord.taOversteFraBunke());
+		Kort kort = bord.getBunkeFra().taSiste();
+		spiller.trekker(kort);
+		KortUtils.sorter(spiller.getHand());
+		return kort;
 
 	}
 

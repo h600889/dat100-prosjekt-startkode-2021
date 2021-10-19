@@ -33,7 +33,7 @@ public class SydSpiller extends Spiller {
 	 * Metode for å implementere strategi. Strategien er å gi alle kort en poengverdi,
 	 * basert på hvor mange andre kort man har av samme typen, og om motstanderen også har kort av den typen i sin hånd.
 	 * Når man har flere kort enn Nord, så unngår man å spille kort som Nord har, og trekker i stedet for å legge ned hvis man må det for å tvinge Nord til å trekke.
-	 * Når man har færre kort enn Nord, så prioriterer man fortsatt kort som Nord har, men man spiller et gyldig kort hvis man har ett uansett hva.
+	 * Når man har færre kort enn Nord, så prioriterer man fortsatt kort som Nord har, men man spiller et gyldig kort hvis man har et uansett hva.
 	 * 
 	 * @param topp
 	 *            kort som ligg øverst på til-bunken.
@@ -85,7 +85,7 @@ public class SydSpiller extends Spiller {
 				}
 			}
 
-			//juks (ser på motstanderen sin hånd + toppkortet i frabunken.
+			//juks (ser på motstanderen sin hånd + toppkortet i frabunken.)
 			removePoeng(spill.getNord().getHand(), 5, gyldigeKort);
 			if (!spill.getBord().bunkefraTom()) {
 				if (spill.getBord().getBunkeFra().seSiste().sammeFarge(topp) || spill.getBord().getBunkeFra().seSiste().sammeVerdi(topp)) {
