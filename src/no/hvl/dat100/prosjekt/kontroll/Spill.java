@@ -12,6 +12,8 @@ import no.hvl.dat100.prosjekt.modell.Kort;
 import no.hvl.dat100.prosjekt.modell.KortUtils;
 import no.hvl.dat100.prosjekt.modell.Kortfarge;
 
+//Oppgave 2
+
 /**
  * Klassen har objektvariaber som er referanser til de spillerne, nord og syd
  * (type ISpiller). Den har ogsÂ en bunke man deler/trekker fra og en bunke man
@@ -176,9 +178,6 @@ public class Spill {
 	public Kort utforHandling(ISpiller spiller, Handling handling) {
 		Kort kort = null;
 
-		// Hint: del opp i de tre mulige handlinger og vurder 
-		// om noen andre private metoder i klassen kan brukes
-		// til å implementere denne metoden
 		switch (handling.getType()) {
 			case TREKK: return trekkFraBunke(spiller);
 			case LEGGNED: leggnedKort(spiller, handling.getKort()); return handling.getKort();

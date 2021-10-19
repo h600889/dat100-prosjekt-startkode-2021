@@ -5,6 +5,7 @@ import java.util.Random;
 
 import no.hvl.dat100.prosjekt.TODO;
 
+//Oppgave 1
 public class KortUtils {
 
 	/**

@@ -5,6 +5,8 @@ import no.hvl.dat100.prosjekt.kontroll.spill.Spillere;
 import no.hvl.dat100.prosjekt.modell.Kort;
 import no.hvl.dat100.prosjekt.modell.Kortfarge;
 
+//Oppgave 2
+
 /**
  * Abstrakt klasse som implementerer alle metodene i kontrakten (interfacet) ISpiller,
  * bortsett fra nesteHandling(). Dette er grunnen til at klassen er abstrakt.
@@ -103,31 +105,48 @@ public abstract class Spiller implements ISpiller {
 		return kort;
 	}
 
+
+	//Oppgave 4
+
+	/**
+	 * Legger til poeng til alle kort i en samling gyldigeKort som har samme verdi eller farge som kort i en samling
+	 *
+	 * @param samling samlingen man søker i
+	 * @param poengSum poengsummen man legger til
+	 * @param gyldigeKort samlingen man legger til
+	 */
 	public void leggTilPoeng(KortSamling samling, int poengSum, KortSamling gyldigeKort) {
 		for (Kort k : samling.getAllekort()) {
 			for (int i = 1; i <= 13; i++) {
 				if (k.getVerdi() == i) {
-					gyldigeKort.addPoengVerdi(i,poengSum);
+					gyldigeKort.addPoeng(i,poengSum);
 				}
 			}
 			for (Kortfarge f : Kortfarge.values()) {
 				if (k.getFarge().equals(f)) {
-					gyldigeKort.addPoengFarge(f,poengSum);
+					gyldigeKort.addPoeng(f,poengSum);
 				}
 			}
 		}
 	}
 
+	/**
+	 * Trekker fra poeng fra alle kort i en samling gyldigeKort som har samme verdi eller farge som kort i en samling
+	 *
+	 * @param samling samlingen man søker i
+	 * @param poengSum poengsummen man trekker fra
+	 * @param gyldigeKort samlingen man trekker fra
+	 */
 	public void removePoeng(KortSamling samling, int poengSum, KortSamling gyldigeKort) {
 		for (Kort k : samling.getAllekort()) {
 			for (int i = 1; i <= 13; i++) {
 				if (k.getVerdi() == i) {
-					gyldigeKort.removePoengVerdi(i,poengSum);
+					gyldigeKort.removePoeng(i,poengSum);
 				}
 			}
 			for (Kortfarge f : Kortfarge.values()) {
 				if (k.getFarge().equals(f)) {
-					gyldigeKort.removePoengFarge(f,poengSum);
+					gyldigeKort.removePoeng(f,poengSum);
 				}
 			}
 		}

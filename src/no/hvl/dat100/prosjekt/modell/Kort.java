@@ -192,18 +192,41 @@ public class Kort implements Comparable<Kort> {
 		return "" + farge + v;
 	}
 
-	//Poengsum metoder.
-	//poeng brukes til at Sydspiller skal kunne bestemme hvilke kort som er best.
+	/* Oppg. 4
+	 *
+	 * Poengsum metoder.
+	 * poeng brukes til at Sydspiller skal kunne bestemme hvilke kort som er best.
+	 *
+	 */
+
+	/**
+	 * gir poengverdien til kortet.
+	 *
+	 * @return poengverdien til kortet.
+	 */
 	public int getPoeng() {
 		return this.poeng;
 	}
 
+	/**
+	 * endrer poengverdien til kortet.
+	 *
+	 * @param p tallet man ønsker å sette poengverdien til å være.
+	 */
 	public void setPoeng(int p) { this.poeng = p;}
 
-	public void addPoeng(int p) {
-		this.poeng += p;
-	}
+	/**
+	 * legger til en verdi til kortets poengverdi.
+	 *
+	 * @param p poengverdien man ønsker å legge til.
+	 */
+	public void addPoeng(int p) { this.poeng += p; }
 
+	/**
+	 * trekker fra en verdi fra kortets poengverdi.
+	 *
+	 * @param p poengverdien man ønsker å trekke fra.
+	 */
 	public void removePoeng(int p) {this.poeng -= p;}
 
 }

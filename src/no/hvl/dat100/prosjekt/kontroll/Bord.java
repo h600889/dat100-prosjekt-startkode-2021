@@ -5,6 +5,8 @@ import no.hvl.dat100.prosjekt.modell.KortUtils;
 import no.hvl.dat100.prosjekt.TODO;
 import no.hvl.dat100.prosjekt.modell.Kort;
 
+//Oppgave 2
+
 /**
  * Klasse som implementerer bordet som spilles på. 
  * 

@@ -5,6 +5,8 @@ import no.hvl.dat100.prosjekt.kontroll.dommer.Regler;
 
 import java.util.Arrays;
 
+//Oppgave 1
+
 /**
  * Struktur for å lagre ei samling kort. Kan lagre hele kortstokken. Det finnes
  * en konstant i klassen Regler som angir antall kort i hver av de 4 fargene. Når
@@ -211,7 +213,17 @@ public class KortSamling {
 	
 	}
 
-	public void addPoengVerdi(int verdi, int p) {
+
+
+	//Oppgave 4
+
+	/**
+	 * legger til en poengsum til alle kort med en viss verdi.
+	 *
+	 * @param verdi verdien man søker etter
+	 * @param p poengsummen man ønsker å legge til
+	 */
+	public void addPoeng(int verdi, int p) {
 		for (Kort k : getAllekort()) {
 			if (k.getVerdi() == verdi) {
 				k.addPoeng(p);
@@ -219,7 +231,13 @@ public class KortSamling {
 		}
 	}
 
-	public void addPoengFarge(Kortfarge verdi, int p) {
+	/**
+	 * legger til en poengsum til alle kort med en viss farge.
+	 *
+	 * @param verdi fargen man søker etter
+	 * @param p poengsummen man ønsker å legge til
+	 */
+	public void addPoeng(Kortfarge verdi, int p) {
 		for (Kort k : getAllekort()) {
 			if (k.getFarge().equals(verdi)) {
 				k.addPoeng(p);
@@ -227,7 +245,14 @@ public class KortSamling {
 		}
 	}
 
-	public void removePoengFarge(Kortfarge verdi, int p) {
+
+	/**
+	 * fjerner en poengsum fra alle kort med en viss farge.
+	 *
+	 * @param verdi fargen man søker etter
+	 * @param p poengsummen man ønsker å fjerne.
+	 */
+	public void removePoeng(Kortfarge verdi, int p) {
 		for (Kort k : getAllekort()) {
 			if (k.getFarge().equals(verdi)) {
 				k.removePoeng(p);
@@ -235,7 +260,13 @@ public class KortSamling {
 		}
 	}
 
-	public void removePoengVerdi(int verdi, int p) {
+	/**
+	 * fjerner en poengsum fra alle kort med en viss verdi.
+	 *
+	 * @param verdi verdien man søker etter
+	 * @param p poengsummen man ønsker å fjerne
+	 */
+	public void removePoeng(int verdi, int p) {
 		for (Kort k : getAllekort()) {
 			if (k.getVerdi() == verdi) {
 				k.removePoeng(p);
@@ -243,6 +274,11 @@ public class KortSamling {
 		}
 	}
 
+	/**
+	 * søker etter kortet med den høyeste poengverdien i samlingen.
+	 *
+	 * @return kortet med den høyeste poengverdien
+	 */
 	public Kort finnBesteKort() {
 		Kort m = new Kort(Kortfarge.Spar,1);
 		m.setPoeng(Integer.MIN_VALUE);
