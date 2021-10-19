@@ -121,10 +121,11 @@ public class KortSamling {
 	 *         null.
 	 */
 	public Kort taSiste() {
-		//bruker seSiste for å lagre hva kortet man fjerner er
-		Kort sisteKort = seSiste();
 		//returner null hvis samlinga er tom
 		if (antall == 0) { return null; }
+
+		//bruker seSiste for å lagre hva kortet man fjerner er
+		Kort sisteKort = seSiste();
 
 		//fjerner siste kort hvis samlinga ikke er tom
 		samling[antall-1] = null;
@@ -142,7 +143,7 @@ public class KortSamling {
 	 * @return true om kortet finst i samlinga, false ellers.
 	 */
 	public boolean har(Kort kort) {
-		//hvis korter er null, returner false. (meningsløst å vite om det finnes et ikke-kort)
+		//hvis korter er null, returner false. (meningsløst å vite om det finnes null)
 		if (kort == null) { return false; }
 
 		//går gjennom kortstokken å leter etter kortet
